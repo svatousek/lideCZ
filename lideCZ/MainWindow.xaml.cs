@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using lideCZ.Database;
+using lideCZ.Interfaces;
+using lideCZ.Managers;
+using lideCZ.Repositories;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +20,14 @@ namespace lideCZ
     /// </summary>
     public partial class MainWindow : Window
     {
+        public IPersonManager PersonManager { get; set; }
+
         public MainWindow()
         {
+            IPersonRepository personRepository = new PersonRepositary(new PersonContext());
+            PersonManager = new PersonManager(personRepository);
             InitializeComponent();
+            LV.DataContext = PersonManager.GetAll();
         }
     }
 }

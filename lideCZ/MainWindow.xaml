@@ -8,10 +8,10 @@
         Background="Silver"
         Title="MainWindow" Height="450" Width="300">
     <Grid>
-        <ListView Width="270" Height="380">
+        <ListView Name="LV" ItemsSource="{Binding}" Width="270" Height="380">
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Add" Click=""/>
+                    <MenuItem Header="Add"/>
                     <MenuItem Header="Update"/>
                     <MenuItem Header="Delete"/>
                     <MenuItem Header="Detail"/>

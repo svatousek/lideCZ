@@ -14,5 +14,9 @@ namespace lideCZ.Models
         public int Age { get; set; }
 
 
+        override public string ToString()
+        {
+            return $"{FirstName} {LastName}, {Age}yrs";
+        }
     }
 }

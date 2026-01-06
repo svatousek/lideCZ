@@ -45,7 +45,7 @@ namespace lideCZ.Repositories
             return _context.Persons.AsNoTracking().ToList();
         }
 
-        public Person GetPersonById(int? id)
+        public Person GetById(int? id)
         {
             return _context.Persons.Find(id) ?? throw new NotImplementedException("Person Not Found");
         }
