@@ -24,13 +24,17 @@ namespace lideCZ
     {
         public IPersonManager PersonManager { get; set; }
 
+        ObservableCollection<Person> Data { get; set; }
+
         public MainWindow()
         {
             IPersonRepository personRepository = new PersonRepositary(new PersonContext());
             PersonManager = new PersonManager(personRepository);
+            Data = new ObservableCollection<Person>((PersonManager.GetAll()));
             InitializeComponent();
+            LV.DataContext = Data;
 
-            LV.DataContext = new ObservableCollection<Person>(PersonManager.GetAll());
+            //LV.DataContext = new ObservableCollection<Person>(PersonManager.GetAll());
         }
     }
 }
